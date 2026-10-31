@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct OrderRowView: View {
+    var order: Int
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("Your Order item \(order):")
+            Spacer()
+            Text(19.9, format: .currency(code: "CAD"))
+        }
     }
 }
 
 #Preview {
-    OrderRowView()
+    OrderRowView(order: 1)
 }
