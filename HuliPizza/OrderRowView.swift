@@ -9,11 +9,19 @@ import SwiftUI
 
 struct OrderRowView: View {
     var order: Int
+    var quantity: Int = 1
+    var itemPrice : Double = 19.90
     var body: some View {
-        HStack {
-            Text("Your Order item \(order):")
-            Spacer()
-            Text(19.9, format: .currency(code: "CAD"))
+        VStack(alignment: .leading) {
+            Text("Your Order item \(order)")
+        
+            HStack (alignment: .firstTextBaseline) {
+                Text("\(quantity) @")
+                Text(itemPrice, format: .currency(code: "CAD"))
+                Spacer()
+                Text(itemPrice * Double(quantity), format: .currency(code: "CAD"))
+                    .fontWeight(.semibold)
+            }
         }
     }
 }
