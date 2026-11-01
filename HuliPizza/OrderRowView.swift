@@ -16,7 +16,8 @@ struct OrderRowView: View {
             Text("Your Order item \(order)")
         
             HStack (alignment: .firstTextBaseline) {
-                Text("\(quantity) @")
+                Text(quantity, format:.number)
+                Text("@")
                 Text(itemPrice, format: .currency(code: "CAD"))
                 Spacer()
                 Text(itemPrice * Double(quantity), format: .currency(code: "CAD"))
